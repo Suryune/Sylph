@@ -2,7 +2,7 @@
 use ahash::AHashMap;
 use std::mem::take;
 
-/// 该函数将一段文本按标点拆分为句子,
+/// 将一段文本按标点拆分为句子,
 /// 再将每个句子拆分成单词或单个汉字.
 pub fn split_into_sentences(text: &str) -> Vec<Vec<String>> {
     let mut chunks: Vec<Vec<String>> = Vec::new();
@@ -47,7 +47,7 @@ pub fn split_into_sentences(text: &str) -> Vec<Vec<String>> {
     chunks
 }
 
-/// 该函数维护一个全局哈希表(AHashMap<String, u32>),
+/// 维护一个全局哈希表(AHashMap<String, u32>),
 /// 将 split_into_sentences 产出的每个单词映射为一个唯一的整数ID.
 /// 若单词不存在则为其分配新 ID(当前词表大小) 并加入哈希表.
 pub fn assign_ids(
@@ -71,7 +71,7 @@ pub fn assign_ids(
     id_list
 }
 
-/// 该函数接受一个全局哈希表(AHashMap<String, u32>),
+/// 接受一个全局哈希表(AHashMap<String, u32>),
 /// 将 split_into_sentences 产出的每个单词映射为一个唯一的整数ID.
 /// 若单词不存在则跳过, 如果一行中所有单词都不在词表中, 则跳过该行, 不会在结果中产生空列表.
 pub fn lookup_ids(id_map: &AHashMap<String, u32>, context: Vec<Vec<String>>) -> Vec<Vec<u32>> {
@@ -90,7 +90,7 @@ pub fn lookup_ids(id_map: &AHashMap<String, u32>, context: Vec<Vec<String>>) -> 
     id_list
 }
 
-/// 该函数接受 assign_ids 输出的 ID 列表, 生产2-gram和3-gram,
+/// 接受 assign_ids 输出的 ID 列表, 生产2-gram和3-gram,
 /// 如果长度不够可能只生成1gram或2gram.
 pub fn generate_ngrams(context: Vec<Vec<u32>>) -> Vec<Vec<u32>> {
     let mut list: Vec<Vec<u32>> = Vec::new();

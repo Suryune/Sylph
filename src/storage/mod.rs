@@ -5,6 +5,7 @@ use std::path::Path;
 
 mod bucket;
 
+/// 将传入的数据按对应的方式存储于磁盘
 pub fn write_data(data: &Data, path: &Path) -> Result<()> {
     match data {
         Data::DocBucket(bucket) => {

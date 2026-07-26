@@ -1,4 +1,9 @@
-# 介绍分词器相关函数
+# 分词器相关内容说明
+
+[split_into_sentences](#split_into_sentences)  
+[assign_ids](#assign_ids)  
+[lookup_ids](#lookup_ids)  
+[generate_ngrams](#generate_ngrams)
 
 代码文件[tokenizer.rs](../src/tokenizer.rs)  
 
@@ -150,7 +155,7 @@ flowchart TB
 
 ## generate_ngrams
 
-该函数接受 assign_ids 输出的 ID 列表, 生产2-gram和3-gram,  
+该函数接收 assign_ids 输出的 ID 列表, 生产2-gram和3-gram,  
 如果长度不够可能只生成1gram或2gram.  
 
 输入:  

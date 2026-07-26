@@ -10,6 +10,8 @@ impl DocBucket {
             content: Vec::new(),
         }
     }
+    /// 添加文章,如果桶的大小达到阈值,创建新桶并写入旧内容到磁盘
+    /// 详细说明见[bucket.md](../doc/bucket.md#add_doc)
     pub fn add_doc(&mut self, doc: String, config: &mut DocBucketConfig) -> Result<u64> {
         let len: u64 = doc.len() as u64;
         self.content.push(doc);
